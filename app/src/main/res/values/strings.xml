@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Stat Application</string>
+    <string name="login_fragment">Login Fragment</string>
+    <string name="login">Login</string>
+    <string name="stats_fragment">Stats Fragment</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="game_fragment">Game Fragment</string>
+    <string name="register_Fragment">Register Fragment</string>
+    <string name="register">Register</string>
 </resources>

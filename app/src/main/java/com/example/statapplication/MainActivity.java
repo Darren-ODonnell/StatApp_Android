@@ -1,6 +1,7 @@
 package com.example.statapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -12,13 +13,23 @@ import android.widget.AdapterView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MainActivity extends AppCompatActivity{
-
+public class MainActivity extends AppCompatActivity implements LoginFragment.FragmentLoginListener, RegisterFragment.FragmentRegisterListener {
+    private LoginFragment fragmentLogin;
+    private RegisterFragment fragmentRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fragmentLogin = new LoginFragment();
+        fragmentRegister = new RegisterFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_register, fragmentRegister)
+                .replace(R.id.container_login, fragmentLogin)
+                .commit();
+
+
+        // Code below is for navigating between fragments
         BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
         bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
 
@@ -44,6 +55,15 @@ public class MainActivity extends AppCompatActivity{
 
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+    }
+
+    @Override
+    public void onInputLoginSent(CharSequence input) {
+        fragmentRegister.updateEditText(input);
+    }
+
+    @Override
+    public void onInputRegisterSent(CharSequence input) {
+        fragmentLogin.updateEditText(input);
     }
 }

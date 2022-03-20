@@ -8,24 +8,26 @@
     tools:context=".MainActivity">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/container_register"
+            android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/container_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/container_register"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/container_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
